@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start CIQ Simulator",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}/.vscode/start-simulator.ps1"
+            ],
+            "presentation": {
+                "reveal": "silent",
+                "panel": "dedicated",
+                "close": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

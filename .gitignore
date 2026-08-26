@@ -1,0 +1,11 @@
+# Connect IQ build output
+bin/
+*.prg
+*.prg.debug.xml
+
+# Store export package (regenerate with "Monkey C: Export Project")
+*.iq
+
+# Developer signing keys - never commit these
+*.der
+developer_key
