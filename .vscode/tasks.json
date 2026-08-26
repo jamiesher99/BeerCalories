@@ -2,62 +2,423 @@
     "version": "2.0.0",
     "tasks": [
         {
-            // Ctrl+Shift+B runs this: builds AND pushes the app into the
-            // simulator. Does not rely on the Monkey C debug adapter, which
-            // only probes for an already-running simulator and pushes into it.
+            "label": "Run on simulator (choose device)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/run-sim.ps1",
+                "${input:device}"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
             "label": "Run on simulator (fr165)",
             "type": "shell",
             "command": "powershell",
             "args": [
                 "-NoProfile",
-                "-ExecutionPolicy", "Bypass",
-                "-File", "${workspaceFolder}/run-sim.ps1",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/run-sim.ps1",
                 "fr165"
             ],
-            "group": { "kind": "build", "isDefault": true },
-            "presentation": { "reveal": "always", "panel": "dedicated" },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
             "problemMatcher": []
         },
         {
-            "label": "Run on simulator (fr265)",
-            "type": "shell",
-            "command": "powershell",
-            "args": [
-                "-NoProfile",
-                "-ExecutionPolicy", "Bypass",
-                "-File", "${workspaceFolder}/run-sim.ps1",
-                "fr265"
-            ],
-            "presentation": { "reveal": "always", "panel": "dedicated" },
-            "problemMatcher": []
-        },
-        {
-            "label": "Run on simulator (Fenix E)",
-            "type": "shell",
-            "command": "powershell",
-            "args": [
-                "-NoProfile",
-                "-ExecutionPolicy", "Bypass",
-                "-File", "${workspaceFolder}/run-sim.ps1",
-                "fenixe"
-            ],
-            "presentation": { "reveal": "always", "panel": "dedicated" },
-            "problemMatcher": []
-        },
-        {
-            // Also starts on folder open, so a simulator is always waiting -
-            // this is what F5 needs in order to work at all.
             "label": "Start CIQ Simulator",
             "type": "shell",
             "command": "powershell",
             "args": [
                 "-NoProfile",
-                "-ExecutionPolicy", "Bypass",
-                "-File", "${workspaceFolder}/.vscode/start-simulator.ps1"
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/.vscode/start-simulator.ps1"
             ],
-            "runOptions": { "runOn": "folderOpen" },
-            "presentation": { "reveal": "silent", "panel": "dedicated", "close": true },
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "presentation": {
+                "reveal": "silent",
+                "panel": "dedicated",
+                "close": true
+            },
             "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "device",
+            "type": "pickString",
+            "description": "Which watch should the app run on?",
+            "default": "fr165",
+            "options": [
+                {
+                    "label": "fr165  -  Forerunner 165",
+                    "value": "fr165"
+                },
+                {
+                    "label": "fr265  -  Forerunner 265",
+                    "value": "fr265"
+                },
+                {
+                    "label": "fenixe  -  fēnix E",
+                    "value": "fenixe"
+                },
+                {
+                    "label": "enduro  -  Enduro",
+                    "value": "enduro"
+                },
+                {
+                    "label": "enduro3  -  Enduro 3",
+                    "value": "enduro3"
+                },
+                {
+                    "label": "fr165m  -  Forerunner 165 Music",
+                    "value": "fr165m"
+                },
+                {
+                    "label": "fr170  -  Forerunner 170",
+                    "value": "fr170"
+                },
+                {
+                    "label": "fr170m  -  Forerunner 170 Music",
+                    "value": "fr170m"
+                },
+                {
+                    "label": "fr245  -  Forerunner 245",
+                    "value": "fr245"
+                },
+                {
+                    "label": "fr245m  -  Forerunner 245 Music",
+                    "value": "fr245m"
+                },
+                {
+                    "label": "fr255  -  Forerunner 255",
+                    "value": "fr255"
+                },
+                {
+                    "label": "fr255m  -  Forerunner 255 Music",
+                    "value": "fr255m"
+                },
+                {
+                    "label": "fr255s  -  Forerunner 255s",
+                    "value": "fr255s"
+                },
+                {
+                    "label": "fr255sm  -  Forerunner 255s Music",
+                    "value": "fr255sm"
+                },
+                {
+                    "label": "fr265s  -  Forerunner 265s",
+                    "value": "fr265s"
+                },
+                {
+                    "label": "fr55  -  Forerunner 55",
+                    "value": "fr55"
+                },
+                {
+                    "label": "fr57042mm  -  Forerunner 570 42mm",
+                    "value": "fr57042mm"
+                },
+                {
+                    "label": "fr57047mm  -  Forerunner 570 47mm",
+                    "value": "fr57047mm"
+                },
+                {
+                    "label": "fr645m  -  Forerunner 645 Music",
+                    "value": "fr645m"
+                },
+                {
+                    "label": "fr70  -  Forerunner 70",
+                    "value": "fr70"
+                },
+                {
+                    "label": "fr745  -  Forerunner 745",
+                    "value": "fr745"
+                },
+                {
+                    "label": "fr945  -  Forerunner 945",
+                    "value": "fr945"
+                },
+                {
+                    "label": "fr945lte  -  Forerunner 945 LTE",
+                    "value": "fr945lte"
+                },
+                {
+                    "label": "fr955  -  Forerunner 955 / Solar",
+                    "value": "fr955"
+                },
+                {
+                    "label": "fr965  -  Forerunner 965",
+                    "value": "fr965"
+                },
+                {
+                    "label": "fr970  -  Forerunner 970",
+                    "value": "fr970"
+                },
+                {
+                    "label": "instinctcrossover  -  Instinct Crossover",
+                    "value": "instinctcrossover"
+                },
+                {
+                    "label": "instinctcrossoveramoled  -  Instinct Crossover AMOLED",
+                    "value": "instinctcrossoveramoled"
+                },
+                {
+                    "label": "instincte40mm  -  Instinct E 40mm",
+                    "value": "instincte40mm"
+                },
+                {
+                    "label": "instincte45mm  -  Instinct E 45mm",
+                    "value": "instincte45mm"
+                },
+                {
+                    "label": "marq2  -  MARQ (Gen 2) Athlete / Adventurer / Captain / Golfer / Carbon Edition / Commander - Carbon Edition",
+                    "value": "marq2"
+                },
+                {
+                    "label": "marq2aviator  -  MARQ (Gen 2) Aviator",
+                    "value": "marq2aviator"
+                },
+                {
+                    "label": "marqadventurer  -  MARQ Adventurer",
+                    "value": "marqadventurer"
+                },
+                {
+                    "label": "marqathlete  -  MARQ Athlete",
+                    "value": "marqathlete"
+                },
+                {
+                    "label": "marqaviator  -  MARQ Aviator",
+                    "value": "marqaviator"
+                },
+                {
+                    "label": "marqcaptain  -  MARQ Captain / MARQ Captain: American Magic Edition",
+                    "value": "marqcaptain"
+                },
+                {
+                    "label": "marqcommander  -  MARQ Commander",
+                    "value": "marqcommander"
+                },
+                {
+                    "label": "marqdriver  -  MARQ Driver",
+                    "value": "marqdriver"
+                },
+                {
+                    "label": "marqexpedition  -  MARQ Expedition",
+                    "value": "marqexpedition"
+                },
+                {
+                    "label": "marqgolfer  -  MARQ Golfer",
+                    "value": "marqgolfer"
+                },
+                {
+                    "label": "montana7xx  -  Montana 7 Series",
+                    "value": "montana7xx"
+                },
+                {
+                    "label": "legacysagarey  -  Rey",
+                    "value": "legacysagarey"
+                },
+                {
+                    "label": "venu  -  Venu",
+                    "value": "venu"
+                },
+                {
+                    "label": "venu2  -  Venu 2",
+                    "value": "venu2"
+                },
+                {
+                    "label": "venu2plus  -  Venu 2 Plus",
+                    "value": "venu2plus"
+                },
+                {
+                    "label": "venu2s  -  Venu 2S",
+                    "value": "venu2s"
+                },
+                {
+                    "label": "venu3  -  Venu 3",
+                    "value": "venu3"
+                },
+                {
+                    "label": "venu3s  -  Venu 3S",
+                    "value": "venu3s"
+                },
+                {
+                    "label": "venu441mm  -  Venu 4 41mm",
+                    "value": "venu441mm"
+                },
+                {
+                    "label": "venu445mm  -  Venu 4 45mm / D2 Air X15",
+                    "value": "venu445mm"
+                },
+                {
+                    "label": "venud  -  Venu Mercedes-Benz Collection",
+                    "value": "venud"
+                },
+                {
+                    "label": "venusq  -  Venu Sq",
+                    "value": "venusq"
+                },
+                {
+                    "label": "venusq2  -  Venu Sq 2",
+                    "value": "venusq2"
+                },
+                {
+                    "label": "venusq2m  -  Venu Sq 2 Music",
+                    "value": "venusq2m"
+                },
+                {
+                    "label": "venusqm  -  Venu Sq. Music Edition",
+                    "value": "venusqm"
+                },
+                {
+                    "label": "venux1  -  Venu X1",
+                    "value": "venux1"
+                },
+                {
+                    "label": "etrextouch  -  eTrex Touch",
+                    "value": "etrextouch"
+                },
+                {
+                    "label": "epix2  -  epix (Gen 2) / quatix 7 Sapphire",
+                    "value": "epix2"
+                },
+                {
+                    "label": "epix2pro42mm  -  epix Pro (Gen 2) 42mm",
+                    "value": "epix2pro42mm"
+                },
+                {
+                    "label": "epix2pro47mm  -  epix Pro (Gen 2) 47mm / quatix 7 Pro",
+                    "value": "epix2pro47mm"
+                },
+                {
+                    "label": "epix2pro51mm  -  epix Pro (Gen 2) 51mm / D2 Mach 1 Pro / tactix 7 – AMOLED Edition",
+                    "value": "epix2pro51mm"
+                },
+                {
+                    "label": "fenix5plus  -  fēnix 5 Plus",
+                    "value": "fenix5plus"
+                },
+                {
+                    "label": "fenix5splus  -  fēnix 5S Plus",
+                    "value": "fenix5splus"
+                },
+                {
+                    "label": "fenix5xplus  -  fēnix 5X Plus",
+                    "value": "fenix5xplus"
+                },
+                {
+                    "label": "fenix6  -  fēnix 6 / 6 Solar / 6 Dual Power",
+                    "value": "fenix6"
+                },
+                {
+                    "label": "fenix6pro  -  fēnix 6 Pro / 6 Sapphire / 6 Pro Solar / 6 Pro Dual Power / quatix 6",
+                    "value": "fenix6pro"
+                },
+                {
+                    "label": "fenix6s  -  fēnix 6S / 6S Solar / 6S Dual Power",
+                    "value": "fenix6s"
+                },
+                {
+                    "label": "fenix6spro  -  fēnix 6S Pro / 6S Sapphire / 6S Pro Solar / 6S Pro Dual Power",
+                    "value": "fenix6spro"
+                },
+                {
+                    "label": "fenix6xpro  -  fēnix 6X Pro / 6X Sapphire / 6X Pro Solar / tactix Delta Sapphire / Delta Solar / Delta Solar - Ballistics Edition / quatix 6X / 6X Solar / 6X Dual Power",
+                    "value": "fenix6xpro"
+                },
+                {
+                    "label": "fenix7  -  fēnix 7 / quatix 7",
+                    "value": "fenix7"
+                },
+                {
+                    "label": "fenix7pro  -  fēnix 7 Pro",
+                    "value": "fenix7pro"
+                },
+                {
+                    "label": "fenix7pronowifi  -  fēnix 7 Pro - Solar Edition (no Wi-Fi)",
+                    "value": "fenix7pronowifi"
+                },
+                {
+                    "label": "fenix7s  -  fēnix 7S",
+                    "value": "fenix7s"
+                },
+                {
+                    "label": "fenix7spro  -  fēnix 7S Pro",
+                    "value": "fenix7spro"
+                },
+                {
+                    "label": "fenix7x  -  fēnix 7X / tactix 7 / quatix 7X Solar / Enduro 2",
+                    "value": "fenix7x"
+                },
+                {
+                    "label": "fenix7xpro  -  fēnix 7X Pro",
+                    "value": "fenix7xpro"
+                },
+                {
+                    "label": "fenix7xpronowifi  -  fēnix 7X Pro - Solar Edition (no Wi-Fi)",
+                    "value": "fenix7xpronowifi"
+                },
+                {
+                    "label": "fenix843mm  -  fēnix 8 43mm",
+                    "value": "fenix843mm"
+                },
+                {
+                    "label": "fenix847mm  -  fēnix 8 47mm / 51mm / tactix 8 47mm / 51mm / quatix 8 47mm / 51mm",
+                    "value": "fenix847mm"
+                },
+                {
+                    "label": "fenix8pro47mm  -  fēnix 8 Pro 47mm / 51mm / MicroLED / quatix 8 Pro 47mm / 51mm",
+                    "value": "fenix8pro47mm"
+                },
+                {
+                    "label": "fenix8solar47mm  -  fēnix 8 Solar 47mm",
+                    "value": "fenix8solar47mm"
+                },
+                {
+                    "label": "fenix8solar51mm  -  fēnix 8 Solar 51mm / tactix 8 Solar 51mm",
+                    "value": "fenix8solar51mm"
+                },
+                {
+                    "label": "vivoactive3m  -  vívoactive 3 Music",
+                    "value": "vivoactive3m"
+                },
+                {
+                    "label": "vivoactive4  -  vívoactive 4",
+                    "value": "vivoactive4"
+                },
+                {
+                    "label": "vivoactive4s  -  vívoactive 4S",
+                    "value": "vivoactive4s"
+                },
+                {
+                    "label": "vivoactive5  -  vívoactive 5",
+                    "value": "vivoactive5"
+                },
+                {
+                    "label": "vivoactive6  -  vívoactive 6",
+                    "value": "vivoactive6"
+                }
+            ]
         }
     ]
 }

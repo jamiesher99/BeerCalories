@@ -1,7 +1,28 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="24" height="24" fill="#000000"/>
-<path d="M3 4C3 3.44772 3.44772 3 4 3H10C10.5523 3 11 3.44772 11 4V10C11 10.5523 10.5523 11 10 11H4C3.44772 11 3 10.5523 3 10V4Z" fill="#F4F4F4"/>
-<path d="M3 14C3 13.4477 3.44772 13 4 13H10C10.5523 13 11 13.4477 11 14V20C11 20.5523 10.5523 21 10 21H4C3.44772 21 3 20.5523 3 20V14Z" fill="#F4F4F4"/>
-<path d="M13 4C13 3.44772 13.4477 3 14 3H20C20.5523 3 21 3.44772 21 4V10C21 10.5523 20.5523 11 20 11H14C13.4477 11 13 10.5523 13 10V4Z" fill="#F4F4F4"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M14.3 14.3V19.7H19.7V14.3H14.3ZM14 13C13.4477 13 13 13.4477 13 14V20C13 20.5523 13.4477 21 14 21H20C20.5523 21 21 20.5523 21 20V14C21 13.4477 20.5523 13 20 13H14Z" fill="#F4F4F4"/>
+<svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+  <!-- Beer mug, matching the colours BeerCaloriesView draws with:
+       amber #FFAA00 liquid, #F5EEDC foam, #804000 shading. No background
+       rect, so it sits on whatever the launcher menu uses. Detail is kept
+       coarse because this is rendered as small as 26x26. -->
+
+  <!-- handle -->
+  <path d="M47 28 q13 1 13 8 t-13 8"
+        fill="none" stroke="#D0D0D0" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- amber liquid, drawn first so the glass outline overlaps it cleanly -->
+  <path d="M20 24 L46 24 L43 56 q0 3 -3 3 L26 59 q-3 0 -3 -3 Z"
+        fill="#FFAA00"/>
+
+  <!-- bubbles -->
+  <circle cx="29" cy="44" r="2.2" fill="#804000" opacity="0.55"/>
+  <circle cx="37" cy="37" r="1.8" fill="#804000" opacity="0.55"/>
+
+  <!-- foam head, overhanging the rim -->
+  <path d="M17 22 q-1 -6 5 -6 q1 -5 7 -3 q3 -4 8 -1 q5 -2 7 3 q6 0 5 7 Z"
+        fill="#F5EEDC"/>
+  <!-- separator so foam reads apart from the liquid at small sizes -->
+  <path d="M18 22 L48 22" stroke="#804000" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- glass outline -->
+  <path d="M17 17 L47 17 L43 56 q0 3 -3 3 L26 59 q-3 0 -3 -3 Z"
+        fill="none" stroke="#E8E8E8" stroke-width="3" stroke-linejoin="round"/>
 </svg>
