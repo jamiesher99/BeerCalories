@@ -2,6 +2,51 @@
     "version": "2.0.0",
     "tasks": [
         {
+            // Ctrl+Shift+B runs this: builds AND pushes the app into the
+            // simulator. Does not rely on the Monkey C debug adapter, which
+            // only probes for an already-running simulator and pushes into it.
+            "label": "Run on simulator (fr165)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}/run-sim.ps1",
+                "fr165"
+            ],
+            "group": { "kind": "build", "isDefault": true },
+            "presentation": { "reveal": "always", "panel": "dedicated" },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run on simulator (fr265)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}/run-sim.ps1",
+                "fr265"
+            ],
+            "presentation": { "reveal": "always", "panel": "dedicated" },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run on simulator (Fenix E)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-ExecutionPolicy", "Bypass",
+                "-File", "${workspaceFolder}/run-sim.ps1",
+                "fenixe"
+            ],
+            "presentation": { "reveal": "always", "panel": "dedicated" },
+            "problemMatcher": []
+        },
+        {
+            // Also starts on folder open, so a simulator is always waiting -
+            // this is what F5 needs in order to work at all.
             "label": "Start CIQ Simulator",
             "type": "shell",
             "command": "powershell",
@@ -10,11 +55,8 @@
                 "-ExecutionPolicy", "Bypass",
                 "-File", "${workspaceFolder}/.vscode/start-simulator.ps1"
             ],
-            "presentation": {
-                "reveal": "silent",
-                "panel": "dedicated",
-                "close": true
-            },
+            "runOptions": { "runOn": "folderOpen" },
+            "presentation": { "reveal": "silent", "panel": "dedicated", "close": true },
             "problemMatcher": []
         }
     ]
